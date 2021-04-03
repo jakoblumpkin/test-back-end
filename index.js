@@ -7,8 +7,10 @@
 
 const { default: MongoMemoryServer } = require('mongodb-memory-server');
 const mongoose = require('mongoose');
-
 require('dotenv').config();
+
+const express = require('express');
+const app = express();
 
 const server = require('./src/server.js');
 
@@ -24,3 +26,11 @@ const mongoServer = new MongoMemoryServer();
 mongoServer.getUri()
   .then((connString) => mongoose.connect(connString, mongooseOptions) )
   .then( () => server.start(process.env.PORT) );
+
+//const Data = require('./src/data.js');
+
+//app.get('/items', Data.getAllItems);
+//app.get('/items/:id', Data.getOneItem);
+//app.delete('/items/:id', Data.deleteOneItem);
+
+//app.post('/items', console.log('function'));

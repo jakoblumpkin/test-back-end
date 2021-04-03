@@ -7,5 +7,5 @@ const ItemSchema = new mongoose.Schema({
   description: {type:'String', required:true},
   notes: {type:'String'},
 });
-
-module.exports = mongoose.model('item', ItemSchema);
+const Item=mongoose.model('item', ItemSchema);
+module.exports = Item;
